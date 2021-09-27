@@ -1,20 +1,55 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Bluetooth Devices
     </ion-title>
+    <!-- <ion-buttons slot="primary">
+      <ion-button color="primary" fill="outline" >
+        <ion-icon slot="icon-only" name="bluetooth"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large" class="ion-padding">Bluetooth Devices</ion-title>
+      <ion-buttons slot="primary" class="ion-padding"  (click)="scan()">
+        <ion-button color="primary"  fill="solid"style="box-shadow: 5px 10px 18px #8c8c8c;">
+          <ion-icon slot="icon-only" name="bluetooth" ></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+
+  <ion-card *ngFor="let item of items; let i=index">
+    <ion-card-header>
+      <ion-card-subtitle>Device Name</ion-card-subtitle>
+      <ion-card-title>{{ item.device.name || item.localName }}</ion-card-title>
+    </ion-card-header>
+    <ion-item class="ion-activated" (click)="connectDevice(item.device.deviceId)">
+      <ion-icon name="bluetooth" [color]="item.device.state === 'connected' ? 'success' : 'primary'"  slot="start"></ion-icon>
+      <h5 class="ion-no-margin"> {{ item.device.deviceId }}  </h5>
+    </ion-item>
+
+    <ion-item *ngIf="item.device.state">
+      <ion-icon name="build" slot="start"></ion-icon>
+      <h6 class="ion-no-margin"> {{ item.device.state }} </h6>
+    </ion-item>
+    <ion-item *ngFor="let x of item.uuids; let i=index">
+      <ion-icon name="build" slot="start"></ion-icon>
+      <h6 class="ion-no-margin"> {{ x }} </h6>
+    </ion-item>
+  </ion-card>
+
+
+  <!-- <div id="container ">
+    <ion-button (click)="scan()" expand="block" full shape="round">
+      scan
+    </ion-button>
+  </div> -->
+
 </ion-content>
