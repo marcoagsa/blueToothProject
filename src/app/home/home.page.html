@@ -4,7 +4,7 @@
       Bluetooth Devices
     </ion-title>
     <!-- <ion-buttons slot="primary">
-      <ion-button color="primary" fill="outline" >
+      <ion-button color="primary" fill="outline" (click)="scan()">
         <ion-icon slot="icon-only" name="bluetooth"></ion-icon>
       </ion-button>
     </ion-buttons> -->
@@ -15,15 +15,13 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large" class="ion-padding">Bluetooth Devices</ion-title>
-      <ion-buttons slot="primary" class="ion-padding"  (click)="scan()">
+      <ion-buttons slot="primary" class="ion-padding" (click)="scan()">
         <ion-button color="primary"  fill="solid"style="box-shadow: 5px 10px 18px #8c8c8c;">
           <ion-icon slot="icon-only" name="bluetooth" ></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-
-
 
   <ion-card *ngFor="let item of items; let i=index">
     <ion-card-header>

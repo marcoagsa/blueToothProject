@@ -133,8 +133,6 @@ export class HomePage {
       });
 
       await BleClient.connect(device.deviceId);
-      console.log('connected to device', device);
-      console.log('connected to device', device.deviceId);
 
       // const result = await BleClient.read(device.deviceId, HEART_RATE_SERVICE, BODY_SENSOR_LOCATION_CHARACTERISTIC);
       // console.log('body sensor location', result.getUint8(0));
