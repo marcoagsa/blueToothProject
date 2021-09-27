@@ -5,9 +5,9 @@
 
 1. Install node js
     - https://nodejs.org/en/
-2. Instal Ionic Framework 
+2. Run the terminal 
+3. Instal Ionic Framework 
     - npm install -g @ionic/cli
-3. Run the terminal 
 4. Clone the project 
     - git clone https://github.com/marcoagsa/blueToothProject.git
     - enter into project folder
